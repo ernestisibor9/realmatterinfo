@@ -18,7 +18,7 @@ class Role
         $userRole = $request->user()->role;
 
         if ($userRole === 'user' && $role !== 'user') {
-            return redirect('dashboard');
+            return redirect('/');
         } elseif ($userRole === 'admin' && $role === 'user') {
             return redirect('/admin/dashboard');
         }
