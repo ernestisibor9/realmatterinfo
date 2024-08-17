@@ -2,7 +2,7 @@
     <header id="header" class="hoc clear">
       <!-- ################################################################################################ -->
       <div id="logo" class="one_half first">
-        <h1 class="logoname"><a href="index.html"><span>Suro</span>gou</a></h1>
+        <h1 class="logoname"><a href="index.html"><span>RealMatter</span>Info</a></h1>
       </div>
       <div class="one_half">
         <ul class="nospace clear">
