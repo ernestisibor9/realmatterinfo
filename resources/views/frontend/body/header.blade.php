@@ -1,53 +1,92 @@
-<div class="wrapper row1">
-    <header id="header" class="hoc clear">
-      <!-- ################################################################################################ -->
-      <div id="logo" class="one_half first">
-        <h1 class="logoname"><a href="index.html"><span>RealMatter</span>Info</a></h1>
-      </div>
-      <div class="one_half">
-        <ul class="nospace clear">
-          <li class="one_half first">
-            <div class="block clear"><i class="fas fa-phone"></i> <span><strong class="block">Call Us:</strong> +00 (123) 456 7890</span> </div>
-          </li>
-          <li class="one_half">
-            <div class="block clear"><i class="far fa-clock"></i> <span><strong class="block"> Mon. - Sat.:</strong> 08.00am - 18.00pm</span> </div>
-          </li>
-        </ul>
-      </div>
-      <!-- ################################################################################################ -->
-    </header>
-    <nav id="mainav" class="hoc clear">
-      <!-- ################################################################################################ -->
-      <ul class="clear">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li><a class="drop" href="#">Pages</a>
-          <ul>
-            <li><a href="pages/gallery.html">Gallery</a></li>
-            <li><a href="pages/full-width.html">Full Width</a></li>
-            <li><a href="pages/sidebar-left.html">Sidebar Left</a></li>
-            <li><a href="pages/sidebar-right.html">Sidebar Right</a></li>
-            <li><a href="pages/basic-grid.html">Basic Grid</a></li>
-            <li><a href="pages/font-icons.html">Font Icons</a></li>
-          </ul>
-        </li>
-        <li><a class="drop" href="#">Dropdown</a>
-          <ul>
-            <li><a href="#">Level 2</a></li>
-            <li><a class="drop" href="#">Level 2 + Drop</a>
-              <ul>
-                <li><a href="#">Level 3</a></li>
-                <li><a href="#">Level 3</a></li>
-                <li><a href="#">Level 3</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Level 2</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Link Text</a></li>
-        <li><a href="#">Link Text</a></li>
-        <li><a href="#">Link Text</a></li>
-        <li><a href="#">Long Link Text</a></li>
-      </ul>
-      <!-- ################################################################################################ -->
-    </nav>
-  </div>
+<div class="header-area">
+    <div class="main-header ">
+        <div class="header-top black-bg d-none d-sm-block">
+            <div class="container">
+                <div class="col-xl-12">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="header-info-left">
+                            <ul>
+                                <li class="title"><span class="flaticon-energy"></span> trending-title</li>
+                                <li>Class property employ ancho red multi level mansion</li>
+                            </ul>
+                        </div>
+                        <div class="header-info-right">
+                            <ul class="header-date">
+                                <li><span class="flaticon-calendar"></span> +880166 253 232</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-mid gray-bg">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <!-- Logo -->
+                    <div class="col-xl-3 col-lg-3 col-md-3 d-none d-md-block">
+                        <div class="logo">
+                            <h2 class="fw-bold">REAL<span style="color: #F7A804">MATTER</span>INFO</h2>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9">
+                        <div class="header-banner f-right ">
+                            <a href="">
+                                <img src="{{asset('frontend/assets/img/gallery/ads_banner.png')}}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom header-sticky">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-8 col-lg-8 col-md-12 header-flex">
+                        <!-- sticky -->
+                        <div class="sticky-logo">
+                            <a href="index.html"><img src="{{asset('frontend/assets/img/logo/logo2.png')}}" alt=""></a>
+                        </div>
+                        <!-- Main-menu -->
+                        <div class="main-menu d-none d-md-block">
+                            <nav>
+                                <ul id="navigation">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">about</a></li>
+                                    <li><a href="categori.html">Category</a></li>
+                                    <li><a href="latest_news.html">Latest News</a></li>
+                                    <li><a href="#">Pages</a>
+                                        <ul class="submenu">
+                                            <li><a href="blog.html">Blog</a></li>
+                                            <li><a href="blog_details.html">Blog Details</a></li>
+                                            <li><a href="elements.html">Element</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4">
+                        <div class="header-right f-right d-none d-lg-block">
+                            <!-- Heder social -->
+                            <ul class="header-social">
+                                <li><a href="https://www.fb.com/sai4ull"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li> <a href="#"><i class="fab fa-youtube"></i></a></li>
+                            </ul>
+                            <!-- Search Nav -->
+                            <div class="nav-search search-switch">
+                                <i class="fa fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mobile Menu -->
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-md-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
