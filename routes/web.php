@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\RedirectIfAuthenticated;
@@ -41,6 +43,25 @@ Route::middleware(['auth', 'roles:admin'])->group(function(){
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
     Route::get('/admin/change/password', [AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
     Route::post('/admin/change/password', [AdminController::class, 'AdminPasswordUpdate'])->name('admin.password.update');
+
+     // Category All Routes
+     Route::controller(CategoryController::class)->group(function(){
+        Route::get('/admin/all/category', 'AllCategory')->name('all.category');
+        Route::get('/admin/add/category', 'AddCategory')->name('add.category');
+        Route::post('/admin/store/category', 'StoreCategory')->name('store.category');
+        Route::get('/admin/edit/category/{id}', 'EditCategory')->name('edit.category');
+        Route::post('/admin/update/category', 'UpdateCategory')->name('update.category');
+        Route::get('/admin/delete/category/{id}', 'DeleteCategory')->name('delete.category');
+    });
+        // Post All Routes
+        Route::controller(PostController::class)->group(function(){
+            Route::get('/admin/all/post', 'AllPost')->name('all.post');
+            Route::get('/admin/add/post', 'AddPost')->name('add.post');
+            Route::post('/admin/store/post', 'StorePost')->name('store.post');
+            Route::get('/admin/edit/post/{id}', 'EditPost')->name('edit.post');
+            Route::post('/admin/update/post', 'UpdatePost')->name('update.post');
+            Route::get('/admin/delete/post/{id}', 'DeletePost')->name('delete.post');
+        });
 });
 
 
