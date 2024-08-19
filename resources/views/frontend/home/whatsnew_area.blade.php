@@ -12,16 +12,20 @@
         object-fit: cover;
         transition: transform 0.3s ease;
     }
-    .single-follow h1, h5{
+
+    .single-follow h1,
+    h5 {
         color: #000000;
     }
-    .last-img{
+
+    .last-img {
         width: 333px;
         height: 229px;
         object-fit: cover;
         transition: transform 0.3s ease;
     }
-    .most-recent-img{
+
+    .most-recent-img {
         width: 85px;
         height: 79px;
         object-fit: cover;
@@ -57,12 +61,16 @@
                                             <div class="col-xl-6 col-lg-12">
                                                 <div class="whats-news-single mb-40 mb-40">
                                                     <div class="whates-img">
-                                                        <img src="{{ asset($item->post_image) }}"
-                                                            alt="" />
+                                                        <a
+                                                            href="{{ url('post/details/'.$item->post_slug) }}">
+                                                            <img src="{{ asset($item->post_image) }}" alt="" />
+                                                        </a>
+
                                                     </div>
                                                     <div class="whates-caption">
                                                         <h4>
-                                                            <a href="latest_news.html">{{ $item->post_title }}</a>
+                                                            <a
+                                                                href="{{ url('post/details/'.$item->post_slug) }}">{{ $item->post_title }}</a>
                                                         </h4>
                                                         <span>by Admin - {{ $item->created_at->format('M d Y') }}</span>
                                                         <p>
@@ -82,15 +90,19 @@
                                                     <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
                                                         <div class="whats-right-single mb-20">
                                                             <div class="whats-right-img">
-                                                                <img src="{{ asset($item->post_image) }}"
-                                                                    alt="Post image" class="my-img" />
+                                                                <a
+                                                                    href="{{ url('post/details/'.$item->post_slug) }}">
+                                                                    <img src="{{ asset($item->post_image) }}"
+                                                                        alt="Post image" class="my-img" />
+                                                                </a>
+
                                                             </div>
                                                             <div class="whats-right-cap">
                                                                 <span
                                                                     class="colorb">{{ $item->category->category_name }}</span>
                                                                 <h4>
                                                                     <a
-                                                                        href="latest_news.html">{{ $item->post_title }}</a>
+                                                                        href="{{ url('post/details/'.$item->post_slug) }}">{{ $item->post_title }}</a>
                                                                 </h4>
                                                                 <p>{{ $item->created_at->format('M d Y') }}</p>
                                                             </div>
@@ -178,7 +190,7 @@
                 </div>
                 <!-- Banner -->
                 <div class="banner-one mt-20 mb-30">
-                    <img src="{{asset('frontend/assets/img/gallery/ads_banner.png')}}" alt="">
+                    <img src="{{ asset('frontend/assets/img/gallery/ads_banner.png') }}" alt="">
                 </div>
             </div>
             <div class="col-lg-4">
@@ -214,17 +226,20 @@
                     </div> --}}
                     <!-- Single -->
                     @foreach ($mostRecent as $item)
-                    <div class="most-recent-single">
-                        <div class="most-recent-images">
-                            <img src="{{ asset($item->post_image) }}" alt="" class="most-recent-img"/>
+                        <div class="most-recent-single">
+                            <div class="most-recent-images">
+                                <a href="{{ url('post/details/'.$item->post_slug) }}">
+                                    <img src="{{ asset($item->post_image) }}" alt="" class="most-recent-img" />
+                                </a>
+
+                            </div>
+                            <div class="most-recent-capt">
+                                <h4>
+                                    <a href="{{ url('post/details/'.$item->post_slug) }}">{{ $item->post_title }}</a>
+                                </h4>
+                                <p>Admin | {{ $item->created_at->diffForHumans() }}</p>
+                            </div>
                         </div>
-                        <div class="most-recent-capt">
-                            <h4>
-                                <a href="latest_news.html">{{ $item->post_title }}</a>
-                            </h4>
-                            <p>Admin |  {{  $item->created_at->diffForHumans() }}</p>
-                        </div>
-                    </div>
                     @endforeach
                     {{-- <div class="most-recent-single">
                         <div class="most-recent-images">

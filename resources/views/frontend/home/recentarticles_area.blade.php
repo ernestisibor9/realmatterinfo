@@ -1,5 +1,5 @@
 @php
-    $trendingMain2 = App\Models\Post::latest()->get();
+    $trendingVideo = App\Models\Video::latest()->get();
 @endphp
 
 <style>
@@ -25,112 +25,16 @@
             <div class="row">
                 <div class="col-12">
                     <div class="recent-active dot-style d-flex dot-style">
-                        @foreach ($trendingMain2 as $item)
-                            <div class="single-recent">
-                                <div class="what-img">
-                                    <img src="{{ asset($item->post_image) }}" alt="" class="my-img-recent-posts" />
-                                </div>
-                                <div class="what-cap">
-                                    <h4>
-                                        <a href="#">
-                                            <h4>
-                                                <a href="latest_news.html">{{ $item->post_title }}</a>
-                                            </h4>
-                                        </a>
-                                    </h4>
-                                    <p>{{ $item->created_at->format('M d Y') }}</p>
-                                    <a class="popup-video btn-icon"
-                                        href="{{$item->video_url }}"><span
-                                            class="flaticon-play-button"></span></a>
+
+                        @foreach ($trendingVideo as $video)
+                            <div class="dot col-md-3">
+                                <div>
+                                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{$video->video_url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                    <h5>{{$video->post_title}}</h5>
                                 </div>
                             </div>
                         @endforeach
-                        <!-- Single -->
-                        {{-- <div class="single-recent">
-                <div class="what-img">
-                  <img src="assets/img/gallery/tranding1.png" alt="" />
-                </div>
-                <div class="what-cap">
-                  <h4>
-                    <a href="#">
-                      <h4>
-                        <a href="latest_news.html"
-                          >What to Expect From the 2020 Oscar Nomin
-                          ations</a
-                        >
-                      </h4></a
-                    >
-                  </h4>
-                  <p>Jun 19, 2020</p>
-                  <a
-                    class="popup-video btn-icon"
-                    href="https://www.youtube.com/watch?v=1aP-TXUpNoU"
-                    ><span class="flaticon-play-button"></span
-                  ></a>
-                </div>
-              </div> --}}
-                        <!-- Single -->
-                        {{-- <div class="single-recent">
-                <div class="what-img">
-                  <img src="assets/img/gallery/tranding2.png" alt="" />
-                </div>
-                <div class="what-cap">
-                  <h4>
-                    <a href="latest_news.html"
-                      >What to Expect From the 2020 Oscar Nomin ations</a
-                    >
-                  </h4>
-                  <p>Jun 19, 2020</p>
-                  <a
-                    class="popup-video"
-                    href="https://www.youtube.com/watch?v=1aP-TXUpNoU"
-                    ><span class="flaticon-play-button"></span
-                  ></a>
-                </div>
-              </div>
-              <!-- Single -->
-              <div class="single-recent">
-                <div class="what-img">
-                  <img src="assets/img/gallery/tranding1.png" alt="" />
-                </div>
-                <div class="what-cap">
-                  <h4>
-                    <a href="latest_news.html">
-                      <h4>
-                        <a href="latest_news.html"
-                          >What to Expect From the 2020 Oscar Nomin
-                          ations</a
-                        >
-                      </h4></a
-                    >
-                  </h4>
-                  <p>Jun 19, 2020</p>
-                  <a
-                    class="popup-video"
-                    href="https://www.youtube.com/watch?v=1aP-TXUpNoU"
-                    ><span class="flaticon-play-button"></span
-                  ></a>
-                </div>
-              </div>
-              <!-- Single -->
-              <div class="single-recent">
-                <div class="what-img">
-                  <img src="assets/img/gallery/tranding2.png" alt="" />
-                </div>
-                <div class="what-cap">
-                  <h4>
-                    <a href="latest_news.html"
-                      >What to Expect From the 2020 Oscar Nomin ations</a
-                    >
-                  </h4>
-                  <p>Jun 19, 2020</p>
-                  <a
-                    class="popup-video"
-                    href="https://www.youtube.com/watch?v=1aP-TXUpNoU"
-                    ><span class="flaticon-play-button"></span
-                  ></a>
-                </div>
-              </div> --}}
+
                     </div>
                 </div>
             </div>

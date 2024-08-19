@@ -30,10 +30,13 @@
                         <div class="single-slider">
                             <div class="trending-top mb-30">
                                 <div class="trend-top-img">
-                                    <img src="{{asset($item->post_image)}}" alt="" >
+                                    <a href="{{ url('post/details/'.$item->post_slug) }}">
+                                        <img src="{{asset($item->post_image)}}" alt="" >
+                                    </a>
+
                                     <div class="trend-top-cap">
                                         <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">{{$item->category->category_name}}</span>
-                                        <h2><a href="latest_news.html" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">{{$item->post_title}}</a></h2>
+                                        <h2><a href="{{ url('post/details/'.$item->post_slug) }}" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">{{$item->post_title}}</a></h2>
                                         <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">by Admin   -   {{$item->created_at->format('M d Y')}}</p>
                                     </div>
                                 </div>
@@ -78,10 +81,12 @@
                         <div class="col-lg-12 col-md-6 col-sm-6">
                             <div class="trending-top mb-30">
                                 <div class="trend-top-img">
-                                    <img src="{{asset($item->post_image)}}" alt=""  class="trend-right">
+                                    <a href="{{ url('post/details/'.$item->post_slug) }}">
+                                        <img src="{{asset($item->post_image)}}" alt=""  class="trend-right">
+                                    </a>
                                     <div class="trend-top-cap trend-top-cap2">
                                         <span class="bgb">{{$item->category->category_name}}</span>
-                                        <h2><a href="latest_news.html">{{$item->post_title}}</a></h2>
+                                        <h2><a href="{{ url('post/details/'.$item->post_slug) }}">{{$item->post_title}}</a></h2>
                                         <p>by Admin   -   {{$item->created_at->format('M d Y')}}</p>
                                     </div>
                                 </div>

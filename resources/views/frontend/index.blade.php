@@ -22,7 +22,7 @@
     <!--======================================
             START CATEGORY AREA
     ======================================-->
-    @include('frontend.home.recentarticles_area')
+    {{-- @include('frontend.home.recentarticles_area') --}}
 <!-- end category-area -->
     <!--======================================
             END CATEGORY AREA
