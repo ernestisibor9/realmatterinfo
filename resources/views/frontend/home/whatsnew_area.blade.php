@@ -7,8 +7,8 @@
 
 <style>
     .my-img {
-        width: 124px;
-        height: 104px;
+        width: 124px !important;
+        height: 104px !important;
         object-fit: cover;
         transition: transform 0.3s ease;
     }
@@ -57,7 +57,7 @@
                                             <div class="col-xl-6 col-lg-12">
                                                 <div class="whats-news-single mb-40 mb-40">
                                                     <div class="whates-img">
-                                                        <img src="assets/img/gallery/whats_news_details1.png"
+                                                        <img src="{{ asset($item->post_image) }}"
                                                             alt="" />
                                                     </div>
                                                     <div class="whates-caption">

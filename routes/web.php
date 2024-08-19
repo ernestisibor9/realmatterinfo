@@ -61,6 +61,13 @@ Route::middleware(['auth', 'roles:admin'])->group(function(){
             Route::get('/admin/edit/post/{id}', 'EditPost')->name('edit.post');
             Route::post('/admin/update/post', 'UpdatePost')->name('update.post');
             Route::get('/admin/delete/post/{id}', 'DeletePost')->name('delete.post');
+
+            Route::get('/admin/all/video', 'AllVideo')->name('all.video');
+            Route::get('/admin/add/video', 'AddVideo')->name('add.video');
+            Route::post('/admin/store/video', 'StoreVideo')->name('store.video');
+            Route::get('/admin/edit/video/{id}', 'EditVideo')->name('edit.video');
+            Route::post('/admin/update/video', 'UpdateVideo')->name('update.video');
+            Route::get('/admin/delete/video/{id}', 'DeleteVideo')->name('delete.video');
         });
 });
 

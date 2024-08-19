@@ -6,8 +6,8 @@
 
 <style>
     .my-img{
-        width: 100%;
-        height: 100%;
+        width: 100% !important;
+        height: 650px !important;
         object-fit: cover;
         transition: transform 0.3s ease;
     }
@@ -30,7 +30,7 @@
                         <div class="single-slider">
                             <div class="trending-top mb-30">
                                 <div class="trend-top-img">
-                                    <img src="{{asset($item->post_image)}}" alt="" class="my-image">
+                                    <img src="{{asset($item->post_image)}}" alt="" >
                                     <div class="trend-top-cap">
                                         <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">{{$item->category->category_name}}</span>
                                         <h2><a href="latest_news.html" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">{{$item->post_title}}</a></h2>

@@ -5,7 +5,7 @@
                 <!-- Banner -->
                 <div class="col-lg-3">
                     <div class="home-banner2 d-none d-lg-block">
-                        <img src="assets/img/gallery/body_card2.png" alt="">
+                        <img src="{{asset('frontend/assets/img/gallery/body_card2.png')}}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-9">
