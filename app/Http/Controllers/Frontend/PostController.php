@@ -18,6 +18,14 @@ public function PostDetails($slug){
     $postDetails->increment('view');
     // $post = Post::latest()->limit(3)->get();
     return view('frontend.post.post_details',compact('bcategory', 'postDetails'));
+}
+//
+public function PostCatList($id){
+    $postCat = Post::where('cat_id', $id)->get();
+    // $breadcat = BlogCategory::where('id',$id)->first();
+    // $bcategory = BlogCategory::latest()->get();
+    $post = Post::latest()->limit(3)->get();
+    return view('frontend.post.post_cat_list',compact('postCat','post'));
 
 }
 }

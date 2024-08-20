@@ -75,6 +75,8 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     // Post Details Route
     Route::get('/post/details/{slug}', [FrontendPostController::class, 'PostDetails']);
 
+    // Post Category List Route
+    Route::get('/post/cat/list/{id}', [FrontendPostController::class, 'PostCatList']);
 
 
 require __DIR__ . '/auth.php';
