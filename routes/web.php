@@ -90,6 +90,9 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     // Post Comment Route
     Route::post('/store/comment', [CommentController::class, 'StoreComment'])->name('store.comment');
 
+    // Search route
+Route::post('/search/post', [FrontendPostController::class, 'SearchPost'])->name('search.post');
+
 
 
 

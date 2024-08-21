@@ -32,11 +32,21 @@ public function PostCatList($id){
 }
 //
 public function PostList(){
-    $posts = Post::latest()->paginate(5);
+    $posts = Post::latest()->paginate(3);
     $bcategory = Category::latest()->get();
     $post = Post::latest()->limit(3)->get();
     $videoOne = Video::latest()->limit(1)->get();
     // $comment = Comment::latest()->get();
     return view('frontend.post.post_list',compact('posts','bcategory','post', 'videoOne'));
+}
+//
+// Search Course
+public function SearchPost(Request $request){
+    $search = $request->search;
+    $postSearch = Post::where('post_title', 'LIKE', '%'.$search.'%')->paginate(6);
+    $bcategory = Category::latest()->get();
+    $post = Post::latest()->limit(4)->get();
+    $videoOne = Video::latest()->limit(1)->get();
+    return view('frontend.post.search_post', compact('postSearch','post', 'bcategory', 'videoOne'));
 }
 }

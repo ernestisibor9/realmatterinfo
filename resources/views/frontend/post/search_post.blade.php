@@ -27,11 +27,11 @@
             <div class="row">
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="blog_left_sidebar">
-                        @foreach ($posts as $item)
+                        @foreach ($postSearch as $item)
                         <article class="blog_item">
                             <div class="blog_item_img">
                                 <a href="{{ url('post/details/'.$item->post_slug) }}">
-                                    <img class="card-img rounded-0" src="{{asset($item->post_image)}}" alt="">
+                                    <img class="card-img rounded-0" src="{{asset($item->post_image)}}" alt="Photo">
                                 </a>
                                 <a href="{{ url('post/details/'.$item->post_slug) }}" class="blog_item_date">
                                     @php
@@ -150,10 +150,10 @@
                             <ul class="pagination">
                                 <li class="page-item">
                                     <a href="#" class="page-link" aria-label="Previous">
-                                        {!!$posts->links('pagination::bootstrap-5')!!}
+                                        <i class="ti-angle-left"></i>
                                     </a>
                                 </li>
-                                {{-- <li class="page-item">
+                                <li class="page-item">
                                     <a href="#" class="page-link">1</a>
                                 </li>
                                 <li class="page-item active">
@@ -163,7 +163,7 @@
                                     <a href="#" class="page-link" aria-label="Next">
                                         <i class="ti-angle-right"></i>
                                     </a>
-                                </li> --}}
+                                </li>
                             </ul>
                         </nav>
                     </div>
