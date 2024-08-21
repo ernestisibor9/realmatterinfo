@@ -29,6 +29,14 @@ public function PostCatList($id){
     // $bcategory = BlogCategory::latest()->get();
     $post = Post::latest()->limit(3)->get();
     return view('frontend.post.post_cat_list',compact('postCat','post'));
-
+}
+//
+public function PostList(){
+    $posts = Post::latest()->paginate(5);
+    $bcategory = Category::latest()->get();
+    $post = Post::latest()->limit(3)->get();
+    $videoOne = Video::latest()->limit(1)->get();
+    // $comment = Comment::latest()->get();
+    return view('frontend.post.post_list',compact('posts','bcategory','post', 'videoOne'));
 }
 }

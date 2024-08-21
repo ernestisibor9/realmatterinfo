@@ -75,6 +75,12 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.blog.comment')}}">
+          <i class="typcn typcn-device-desktop menu-icon"></i>
+          <span class="menu-title">Comment<span class="badge badge-primary ml-3">New</span></span>
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <i class="typcn typcn-briefcase menu-icon"></i>
           <span class="menu-title">Manage Category</span>

@@ -12,11 +12,16 @@
         .single-ads:hover {
             color: white !important;
         }
-        .ads-img{
+
+        .ads-img {
             width: 100%;
             height: 250px;
             object-fit: cover;
             transition: transform 0.3s ease;
+        }
+
+        .reply-section {
+            display: none;
         }
     </style>
 
@@ -45,8 +50,7 @@
                     </div>
                     <div class="navigation-top">
                         <div class="d-sm-flex justify-content-between text-center">
-                            <p class="like-info"><span class="align-middle"><i class="fa fa-heart"></i></span> Lily and 4
-                                people like this</p>
+                            <p class="like-info"><span class="align-middle"></p>
                             <div class="col-sm-4 text-center my-2 my-sm-0">
                                 <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
                             </div>
@@ -58,50 +62,8 @@
                                 <li><a href="#"><i class="fab fa-instagram instagram-share"></i></a></li>
                             </ul>
                         </div>
-                        <div class="navigation-area">
-                            <div class="row">
-                                <div
-                                    class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <img class="img-fluid" src="assets/img/post/preview.png" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="arrow">
-                                        <a href="#">
-                                            <span class="lnr text-white ti-arrow-left"></span>
-                                        </a>
-                                    </div>
-                                    <div class="detials">
-                                        <p>Prev Post</p>
-                                        <a href="#">
-                                            <h4>Space The Final Frontier</h4>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div
-                                    class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
-                                    <div class="detials">
-                                        <p>Next Post</p>
-                                        <a href="#">
-                                            <h4>Telescopes 101</h4>
-                                        </a>
-                                    </div>
-                                    <div class="arrow">
-                                        <a href="#">
-                                            <span class="lnr text-white ti-arrow-right"></span>
-                                        </a>
-                                    </div>
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <img class="img-fluid" src="assets/img/post/next.png" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                    <div class="blog-author">
+                    {{-- <div class="blog-author">
                         <div class="media align-items-center">
                             <img src="assets/img/blog/author.png" alt="">
                             <div class="media-body">
@@ -113,37 +75,97 @@
                                     our dominion twon Second divided from</p>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
+
+
+                    @php
+                        $comment = App\Models\Comment::where('post_id', $postDetails->id)
+                            ->where('parent_id', null)
+                            ->where('status', 'active')
+                            ->limit(5)
+                            ->get();
+                    @endphp
+
                     <div class="comments-area">
-                        <h4>05 Comments</h4>
+                        <h4>{{count($comment)}} Comments</h4>
                         <div class="comment-list">
-                            <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="assets/img/comment/comment_1.png" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <p class="comment">
-                                            Multiply sea night grass fourth day sea lesser rule open subdue female fill
-                                            which them
-                                            Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                                        </p>
-                                        <div class="d-flex justify-content-between">
-                                            <div class="d-flex align-items-center">
-                                                <h5>
-                                                    <a href="#">Emilly Blunt</a>
-                                                </h5>
-                                                <p class="date">December 4, 2017 at 3:12 pm </p>
-                                            </div>
-                                            <div class="reply-btn">
-                                                <a href="#" class="btn-reply text-uppercase">reply</a>
+                            @foreach ($comment as $com)
+                                <div class="single-comment justify-content-between d-flex pb-2">
+                                    <div class="user justify-content-between d-flex pb-4">
+                                        <div class="thumb">
+                                            <img src="{{ !empty($com->photo) ? url('upload/admin_images/' . $com->photo) : url('upload/no_image.jpeg') }}"
+                                                alt="">
+                                        </div>
+                                        <div class="desc">
+                                            <p class="comment">
+                                                {{ $com->message }}
+                                            </p>
+                                            <div class="d-flex justify-content-between">
+                                                <div class="d-flex align-items-center">
+                                                    <h5>
+                                                        <a href="#">{{ $com->name }}</a>
+                                                    </h5>
+                                                    <p class="date">{{ $com->created_at->format('M d Y') }} </p>
+                                                </div>
+                                                {{-- <div class="reply-btn">
+                                                <button type="submit" class="btn btn-primary" id="btn-reply">Reply</button>
+                                            </div> --}}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+
+                                @php
+                                    $reply = App\Models\Comment::where('parent_id', $com->id)->get();
+                                @endphp
+                                @foreach ($reply as $rep)
+                                    <div class="single-comment justify-content-between d-flex pb-2"
+                                    style="margin-left: 80px">
+                                        <div class="user justify-content-between d-flex pb-4">
+                                            <div class="thumb">
+                                                <img src="{{ !empty($rep->photo) ? url('upload/admin_images/' . $reply->photo) : url('upload/admin_logo.png') }}"
+                                                    alt="">
+                                            </div>
+                                            <div class="desc">
+                                                <p class="comment">
+                                                    {{ $rep->message }}
+                                                </p>
+                                                <div class="d-flex justify-content-between">
+                                                    <div class="d-flex align-items-center">
+                                                        <h5>
+                                                            <a href="#">Admin</a>
+                                                        </h5>
+                                                        <p class="date">{{ $rep->created_at->format('M d Y') }} </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endforeach
                         </div>
-                        <div class="comment-list">
+
+
+                        {{-- <div class="container reply-section">
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+                                    <form action="" method="post">
+                                        <input type="text" name="post_id" id="" value="">
+                                        @csrf
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="name" id="" placeholder="Your name" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="comment" name="message" rows="3"
+                                                      placeholder="Write a comment..."></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Reply Comment</button>
+                                        <button type="button" class="btn btn-primary" id="close">Close</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div> --}}
+                        {{-- <div class="comment-list">
                             <div class="single-comment justify-content-between d-flex">
                                 <div class="user justify-content-between d-flex">
                                     <div class="thumb">
@@ -196,15 +218,18 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="comment-form">
                         <h4>Leave a Reply</h4>
-                        <form class="form-contact comment_form" action="#" id="commentForm">
+                        <form class="form-contact comment_form" method="POST" action="{{ route('store.comment') }}"
+                            id="commentForm">
+                            @csrf
+                            <input type="hidden" name="post_id" id="" value="{{ $postDetails->id }}">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
+                                        <textarea class="form-control w-100" name="message" id="comment" cols="30" rows="9"
                                             placeholder="Write Comment"></textarea>
                                     </div>
                                 </div>
@@ -220,12 +245,12 @@
                                             placeholder="Email">
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                {{-- <div class="col-12">
                                     <div class="form-group">
                                         <input class="form-control" name="website" id="website" type="text"
                                             placeholder="Website">
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="button button-contactForm btn_1 boxed-btn">Send
@@ -236,7 +261,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="blog_right_sidebar">
-                            <img src="{{asset('frontend/assets/img/ads/musicads.jpg')}}" alt="" class="ads-img">
+                        <img src="{{ asset('frontend/assets/img/ads/musicads.jpg') }}" alt="" class="ads-img">
                         <aside class="single_sidebar_widget post_category_widget">
                             <h4 class="widget_title">Category</h4>
                             <ul class="list cat-list">
@@ -310,13 +335,17 @@
                         <aside class="single_sidebar_widget newsletter_widget">
                             <h4 class="widget_title">Video of the Week</h4>
                             @foreach ($videoOne as $item)
-                            <iframe width="100%" height="215" src="https://www.youtube.com/embed/{{$item->video_url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <iframe width="100%" height="215"
+                                    src="https://www.youtube.com/embed/{{ $item->video_url }}"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             @endforeach
                         </aside>
                         <aside class="single_sidebar_widget instagram_feeds">
                             <div class="home-banner2 d-none d-lg-block">
                                 <a href="">
-                                    <img src="{{asset('frontend/assets/img/gallery/body_card2.png')}}" alt="">
+                                    <img src="{{ asset('frontend/assets/img/gallery/body_card2.png') }}" alt="">
                                 </a>
 
                             </div>
@@ -328,35 +357,56 @@
     </section>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         // script.js
-document.addEventListener("DOMContentLoaded", function() {
-    const facebookShareBtn = document.querySelector(".facebook-share");
-    const twitterShareBtn = document.querySelector(".twitter-share");
-    const whatsappShareBtn = document.querySelector(".whatsapp-share");
+        document.addEventListener("DOMContentLoaded", function() {
+            const facebookShareBtn = document.querySelector(".facebook-share");
+            const twitterShareBtn = document.querySelector(".twitter-share");
+            const whatsappShareBtn = document.querySelector(".whatsapp-share");
 
-    // Facebook share functionality
-    facebookShareBtn.addEventListener("click", function(event) {
-        event.preventDefault();
-        // Replace URL and other parameters with your actual content
-        window.open("https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/post/details/{{$postDetails->post_slug}}", "_blank");
-    });
+            // Facebook share functionality
+            facebookShareBtn.addEventListener("click", function(event) {
+                event.preventDefault();
+                // Replace URL and other parameters with your actual content
+                window.open(
+                    "https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/post/details/{{ $postDetails->post_slug }}",
+                    "_blank");
+            });
 
-    // Twitter share functionality
-    twitterShareBtn.addEventListener("click", function(event) {
-        event.preventDefault();
-        // Replace URL and other parameters with your actual content
-        window.open("https://twitter.com/intent/tweet?url=http://localhost:8000/post/details/{{$postDetails->post_slug}}&text=", "_blank");
-    });
+            // Twitter share functionality
+            twitterShareBtn.addEventListener("click", function(event) {
+                event.preventDefault();
+                // Replace URL and other parameters with your actual content
+                window.open(
+                    "https://twitter.com/intent/tweet?url=http://localhost:8000/post/details/{{ $postDetails->post_slug }}&text=",
+                    "_blank");
+            });
 
-    // WhatsApp share functionality
-    whatsappShareBtn.addEventListener("click", function(event) {
-        event.preventDefault();
-        // Replace URL and other parameters with your actual content
-        window.open("https://api.whatsapp.com/send?text=%20-%20http://localhost:8000/post/details/{{$postDetails->post_slug}}", "_blank");
-    });
-})
+            // WhatsApp share functionality
+            whatsappShareBtn.addEventListener("click", function(event) {
+                event.preventDefault();
+                // Replace URL and other parameters with your actual content
+                window.open(
+                    "https://api.whatsapp.com/send?text=%20-%20http://localhost:8000/post/details/{{ $postDetails->post_slug }}",
+                    "_blank");
+            });
+        })
     </script>
     <!--================ Blog Area end =================-->
+
+    <script>
+        const replySection = document.querySelector('.reply-section');
+        const replyBtn = document.getElementById('btn-reply');
+        const closeBtn = document.getElementById('close');
+
+        replyBtn.addEventListener('click', function() {
+            replySection.style.display = 'block';
+        });
+        closeBtn.addEventListener('click', function() {
+            replySection.style.display = 'none';
+        });
+    </script>
 @endsection

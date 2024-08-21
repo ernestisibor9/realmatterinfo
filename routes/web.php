@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\CommentController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Frontend\PostController as FrontendPostController;
 use App\Http\Controllers\ProfileController;
@@ -69,6 +70,11 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('/admin/edit/video/{id}', 'EditVideo')->name('edit.video');
         Route::post('/admin/update/video', 'UpdateVideo')->name('update.video');
         Route::get('/admin/delete/video/{id}', 'DeleteVideo')->name('delete.video');
+        // comments
+        Route::get('/admin/blog/comment','AdminBlogComment')->name('admin.blog.comment');
+        Route::get('/admin/comment/reply/{id}', 'AdminCommentReply')->name('admin.comment.reply');
+        Route::post('/reply/message', 'ReplyMessage')->name('reply.message');
+        Route::get('/change/status/{id}', 'ChangeStatus')->name('change.status');
     });
 });
 
@@ -77,6 +83,14 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
 
     // Post Category List Route
     Route::get('/post/cat/list/{id}', [FrontendPostController::class, 'PostCatList']);
+
+    // Post Route
+    Route::get('/post', [FrontendPostController::class, 'PostList'])->name('blog.list');
+
+    // Post Comment Route
+    Route::post('/store/comment', [CommentController::class, 'StoreComment'])->name('store.comment');
+
+
 
 
 require __DIR__ . '/auth.php';

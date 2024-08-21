@@ -50,10 +50,10 @@
                         <div class="main-menu d-none d-md-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="{{url('/')}}">Home</a></li>
                                     <li><a href="about.html">about</a></li>
-                                    <li><a href="categori.html">Category</a></li>
                                     <li><a href="latest_news.html">Latest News</a></li>
+                                    <li><a href="{{route('blog.list')}}">Blog</a></li>
                                     <li><a href="#">Pages</a>
                                         <ul class="submenu">
                                             <li><a href="blog.html">Blog</a></li>

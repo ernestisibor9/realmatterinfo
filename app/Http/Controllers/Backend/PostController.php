@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Video;
 use Carbon\Carbon;
@@ -164,15 +165,15 @@ class PostController extends Controller
         );
         return redirect()->route('all.video')->with($notification);
     }
-       // Edit Post
-       public function EditVideo($id)
-       {
-           $categories = Category::latest()->get();
-           $video = Video::find($id);
-           return view('admin.backend.video.edit_video', compact('video', 'categories'));
-       }
+    // Edit Post
+    public function EditVideo($id)
+    {
+        $categories = Category::latest()->get();
+        $video = Video::find($id);
+        return view('admin.backend.video.edit_video', compact('video', 'categories'));
+    }
 
-           // Update Video
+    // Update Video
     public function UpdateVideo(Request $request)
     {
 
@@ -235,5 +236,59 @@ class PostController extends Controller
         );
         return redirect()->back()->with($notification);
     } // End Method
+    public function AdminBlogComment()
+    {
+        $comment = Comment::where('parent_id', null)->latest()->get();
+        return view('admin.backend.comment.comment_all', compact('comment'));
+    } // End Method
+    //
+    public function AdminCommentReply($id)
+    {
+        $comment = Comment::where('id', $id)->first();
+        return view('admin.backend.comment.reply_comment', compact('comment'));
+    } // End Method
+    //
 
+    public function ReplyMessage(Request $request)
+    {
+
+        $id = $request->id;
+        // $user_id = $request->user_id;
+        $post_id = $request->post_id;
+
+        Comment::insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'post_id' => $post_id,
+            'parent_id' => $id,
+            'message' => $request->message,
+            'created_at' => Carbon::now(),
+
+        ]);
+
+        $notification = array(
+            'message' => 'Reply Inserted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    } // End Method
+     // Change Status
+     public function ChangeStatus($id){
+        $statusId = Comment::findOrFail($id);
+
+        if($statusId->status === 'pending'){
+            $statusId->status = 'active';
+        }
+        else{
+            $statusId->status = 'pending';
+        }
+        $statusId->save();
+
+        $notification = array(
+            'message'=> 'Status Changed to ' .  ucfirst($statusId->status),
+            'alert-type'=>'success'
+        );
+        return redirect()->back()->with($notification);
+    }
 }
