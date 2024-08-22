@@ -40,6 +40,14 @@ public function PostList(){
     return view('frontend.post.post_list',compact('posts','bcategory','post', 'videoOne'));
 }
 //
+//
+public function VideoList(){
+    $bcategory = Category::latest()->get();
+    $post = Post::latest()->limit(3)->get();
+    $videos = Video::latest()->limit(3)->get();
+    // $comment = Comment::latest()->get();
+    return view('frontend.video.video_list',compact('bcategory','post', 'videos'));
+}
 // Search Course
 public function SearchPost(Request $request){
     $search = $request->search;

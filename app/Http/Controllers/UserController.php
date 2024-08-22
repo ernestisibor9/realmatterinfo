@@ -11,4 +11,8 @@ class UserController extends Controller
     {
         return view('frontend.index');
     }
+    //
+    public function About(){
+        return view('frontend.about.about_us');
+    }
 }

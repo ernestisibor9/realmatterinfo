@@ -2,6 +2,12 @@
 
 @section('home')
 
+{{-- @foreach ($postCat as $item)
+<img src="{{asset($item->post_image)}}" alt="" width="300px" height="250px">
+@endforeach --}}
+
+
+
 <style>
     .my-img-what {
         width: 360px !important;
@@ -10,7 +16,6 @@
         transition: transform 0.3s ease;
     }
 </style>
-
 
 <main>
     <!-- About US Start -->
@@ -50,7 +55,7 @@
                                         <!-- card one -->
                                         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                                             <div class="row">
-                                                @foreach ($postCat as $item)
+                                                @foreach ($videos as $item)
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
@@ -59,7 +64,7 @@
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">{{$item->post_title}}</a></h4>
                                                             <span>by Alice cloe   -   Jun 19, 2020</span>
-                                                            <p>{!! substr($item->long_descp, 0, 80) !!}</p>
+                                                            {{-- <p>{!! substr($item->long_descp, 0, 80) !!}</p> --}}
                                                         </div>
                                                     </div>
                                                 </div>

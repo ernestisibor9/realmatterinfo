@@ -87,13 +87,18 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     // Post Route
     Route::get('/post', [FrontendPostController::class, 'PostList'])->name('blog.list');
 
+    // Video Route
+    Route::get('/video', [FrontendPostController::class, 'VideoList'])->name('video.list');
+
+
     // Post Comment Route
     Route::post('/store/comment', [CommentController::class, 'StoreComment'])->name('store.comment');
 
     // Search route
-Route::post('/search/post', [FrontendPostController::class, 'SearchPost'])->name('search.post');
+    Route::post('/search/post', [FrontendPostController::class, 'SearchPost'])->name('search.post');
 
-
+    // About us
+    Route::get('/about', [UserController::class, 'About']);
 
 
 require __DIR__ . '/auth.php';
