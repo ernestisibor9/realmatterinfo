@@ -1,6 +1,8 @@
 @php
     $id = Auth::user()->id;
     $profileData = App\Models\User::find($id);
+
+
 @endphp
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -12,7 +14,7 @@
         </button>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-        <ul class="navbar-nav mr-lg-2">
+        {{-- <ul class="navbar-nav mr-lg-2">
             <li class="nav-item  d-none d-lg-flex">
                 <a class="nav-link" href="#">
                     Calendar
@@ -28,20 +30,20 @@
                     Employee
                 </a>
             </li>
-        </ul>
+        </ul> --}}
         <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item d-none d-lg-flex  mr-2">
+            {{-- <li class="nav-item d-none d-lg-flex  mr-2">
                 <a class="nav-link" href="#">
                     Help
                 </a>
-            </li>
+            </li> --}}
             <li class="nav-item dropdown d-flex">
-                <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
+                {{-- <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
                     id="messageDropdown" href="#" data-toggle="dropdown">
                     <i class="typcn typcn-message-typing"></i>
                     <span class="count bg-success">2</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                </a> --}}
+                {{-- <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
                     aria-labelledby="messageDropdown">
                     <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
                     <a class="dropdown-item preview-item">
@@ -82,7 +84,7 @@
                             </p>
                         </div>
                     </a>
-                </div>
+                </div> --}}
             </li>
             <li class="nav-item dropdown  d-flex">
                 <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center"
@@ -113,9 +115,9 @@
                             </div>
                         </div>
                         <div class="preview-item-content">
-                            <h6 class="preview-subject font-weight-normal">Settings</h6>
+                            <h6 class="preview-subject font-weight-normal">Profile</h6>
                             <p class="font-weight-light small-text mb-0">
-                                Private message
+                                {{route('admin.profile')}}
                             </p>
                         </div>
                     </a>
@@ -141,9 +143,9 @@
                     <span class="nav-profile-name">{{ $profileData->name }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                    <a class="dropdown-item">
+                    <a class="dropdown-item" href="{{ route('admin.profile') }}">
                         <i class="typcn typcn-cog text-primary"></i>
-                        Settings
+                        Profile
                     </a>
                     <a class="dropdown-item" href="{{ route('admin.logout') }}">
                         <i class="typcn typcn-power text-primary"></i>

@@ -498,8 +498,8 @@
                                         <a href="#"><img src="{{asset('frontend/assets/img/news/icon-fb.png')}}" alt=""></a>
                                     </div>
                                     <div class="follow-count">
-                                        <span>8,045</span>
-                                        <p>Fans</p>
+                                        <span>Folow us on</span>
+                                        <p>Facebook</p>
                                     </div>
                                 </div>
                                 <div class="follow-us d-flex align-items-center">
@@ -507,8 +507,8 @@
                                         <a href="#"><img src="{{asset('frontend/assets/img/news/icon-tw.png')}}" alt=""></a>
                                     </div>
                                     <div class="follow-count">
-                                        <span>8,045</span>
-                                        <p>Fans</p>
+                                        <span>Folow us on</span>
+                                        <p>Twitter</p>
                                     </div>
                                 </div>
                                     <div class="follow-us d-flex align-items-center">
@@ -516,8 +516,8 @@
                                         <a href="#"><img src="{{asset('frontend/assets/img/news/icon-ins.png')}}" alt=""></a>
                                     </div>
                                     <div class="follow-count">
-                                        <span>8,045</span>
-                                        <p>Fans</p>
+                                        <span>Folow us on</span>
+                                        <p>Instagram</p>
                                     </div>
                                 </div>
                                 <div class="follow-us d-flex align-items-center">
@@ -525,8 +525,8 @@
                                         <a href="#"><img src="{{asset('frontend/assets/img/news/icon-yo.png')}}" alt=""></a>
                                     </div>
                                     <div class="follow-count">
-                                        <span>8,045</span>
-                                        <p>Fans</p>
+                                        <span>Folow us on</span>
+                                        <p>YouTube</p>
                                     </div>
                                 </div>
                             </div>

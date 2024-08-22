@@ -1,3 +1,10 @@
+@php
+     $id = Auth::user()->id;
+     $profileData = App\Models\User::find($id);
+
+    $reply = App\Models\Comment::latest()->get();
+@endphp
+
 <div class="container-fluid page-body-wrapper">
     <!-- partial:partials/_settings-panel.html -->
     <div class="theme-setting-wrapper">
@@ -37,14 +44,14 @@
           </div>
           <div class="sidebar-profile-name">
             <p class="sidebar-name">
-              Kenneth Osborne
+              {{$profileData->name}}
             </p>
             <p class="sidebar-designation">
               Welcome
             </p>
           </div>
         </div>
-        <div class="nav-search">
+        {{-- <div class="nav-search">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Type to search..." aria-label="search" aria-describedby="search">
             <div class="input-group-append">
@@ -53,11 +60,11 @@
               </span>
             </div>
           </div>
-        </div>
+        </div> --}}
         <p class="sidebar-menu-title">Dash menu</p>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('admin.dashboard')}}">
           <i class="typcn typcn-device-desktop menu-icon"></i>
           <span class="menu-title">Dashboard <span class="badge badge-primary ml-3">New</span></span>
         </a>
@@ -77,7 +84,7 @@
       <li class="nav-item">
         <a class="nav-link" href="{{route('admin.blog.comment')}}">
           <i class="typcn typcn-device-desktop menu-icon"></i>
-          <span class="menu-title">Comment<span class="badge badge-primary ml-3">New</span></span>
+          <span class="menu-title">Comment<span class="badge badge-primary ml-3">{{count($reply)}}</span></span>
         </a>
       </li>
       <li class="nav-item">
@@ -119,7 +126,7 @@
           </ul>
         </div>
       </li>
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
           <i class="typcn typcn-th-small-outline menu-icon"></i>
           <span class="menu-title">Tables</span>
@@ -174,7 +181,7 @@
           <i class="typcn typcn-document-text menu-icon"></i>
           <span class="menu-title">Documentation</span>
         </a>
-      </li>
+      </li> --}}
     </ul>
     <ul class="sidebar-legend">
       <li>

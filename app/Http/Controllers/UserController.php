@@ -15,4 +15,8 @@ class UserController extends Controller
     public function About(){
         return view('frontend.about.about_us');
     }
+    //
+    public function Contact(){
+        return view('frontend.contact.contact');
+    }
 }

@@ -37,7 +37,7 @@
                                                     style="width: 70px; height:50px;"> </td>
                                             <td>{{ $item->post_title }}</td>
                                             <td>{{ $item->category->category_name }}</td>
-                                            <td>
+                                            <td class="d-flex justify-content-around">
                                                 <a href="{{ route('edit.video', $item->id) }}" class="btn btn-info px-5">Edit
                                                 </a>
                                                 <a href="{{ route('delete.video', $item->id) }}" class="btn btn-danger px-5"

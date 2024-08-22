@@ -107,5 +107,8 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     // About us
     Route::get('/about', [UserController::class, 'About']);
 
+    // Contact us
+    Route::get('/contact', [UserController::class, 'Contact'])->name('contact');
+
 
 require __DIR__ . '/auth.php';
