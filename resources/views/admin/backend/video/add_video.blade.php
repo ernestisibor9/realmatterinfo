@@ -44,7 +44,7 @@
                 <div class="row">
                     <div class="form-group col-8">
                         <label for="input2" class="form-label">Video Image </label>
-                        <input class="form-control" name="post_image" type="file" id="image">
+                        <input class="form-control" name="video_image" type="file" id="image">
                     </div>
 
                     <div class="col-4">

@@ -16,13 +16,16 @@
                     <div class="row d-flex justify-content-between align-items-center">
                         <div class="header-info-left">
                             <ul>
-                                <li class="title"><span class="flaticon-energy"></span> trending-title</li>
-                                <li>Class property employ ancho red multi level mansion</li>
+                                <li class="title"><span class="flaticon-energy"></span> RealMatterInfo</li>
+                                <li><a href="https://www.fb.com/sai4ull"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li> <a href="#"><i class="fab fa-youtube"></i></a></li>
                             </ul>
                         </div>
                         <div class="header-info-right">
                             <ul class="header-date">
-                                <li><span class="flaticon-calendar"></span> +880166 253 232</li>
+                                <li><span class="flaticon-calendar"></span> +2348167145276</li>
                             </ul>
                         </div>
                     </div>
@@ -63,7 +66,7 @@
                                 <ul id="navigation">
                                     <li><a href="{{ url('/') }}">Home</a></li>
                                     <li><a href="{{url('about')}}">about</a></li>
-                                    <li><a href="latest_news.html">Latest News</a></li>
+                                    <li><a href="{{route('latest.news')}}">Latest News</a></li>
                                     <li><a href="{{ route('blog.list') }}">Blog</a></li>
                                     <li><a href="{{ route('video.list') }}">Video</a></li>
                                     {{-- <li><a href="#">Pages</a>

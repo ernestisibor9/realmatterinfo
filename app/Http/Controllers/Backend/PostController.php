@@ -144,10 +144,10 @@ class PostController extends Controller
     public function StoreVideo(Request $request)
     {
 
-        $image = $request->file('post_image');
+        $image = $request->file('video_image');
         $filename = date('YmdHi') . $image->getClientOriginalName();
-        $image->move(public_path('upload/post_images/'), $filename);
-        $save_url = 'upload/post_images/' . $filename;
+        $image->move(public_path('upload/video_images/'), $filename);
+        $save_url = 'upload/video_images/' . $filename;
 
         Video::insert([
             'cat_id' => $request->blogcat_id,
@@ -179,12 +179,12 @@ class PostController extends Controller
 
         $post_id = $request->id;
 
-        if ($request->file('post_image')) {
+        if ($request->file('video_image')) {
 
-            $image = $request->file('post_image');
+            $image = $request->file('video_image');
             $filename = date('YmdHi') . $image->getClientOriginalName();
-            $image->move(public_path('upload/post_images/'), $filename);
-            $save_url = 'upload/post_images/' . $filename;
+            $image->move(public_path('upload/video_images/'), $filename);
+            $save_url = 'upload/video_images/' . $filename;
 
             Video::find($post_id)->update([
                 'cat_id' => $request->blogcat_id,

@@ -12,8 +12,8 @@
       </div>
       <div class="fl_right">
         <ul class="nospace">
-          <li><i class="fas fa-phone rgtspace-5"></i> +00 (123) 456 7890</li>
-          <li><i class="fas fa-envelope rgtspace-5"></i> info@domain.com</li>
+          <li><i class="fas fa-phone rgtspace-5"></i> +2348167145276</li>
+          <li><i class="fas fa-envelope rgtspace-5"></i> crusadewisdom1@yahoo.com</li>
         </ul>
       </div>
       <!-- ################################################################################################ -->

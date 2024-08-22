@@ -2,12 +2,6 @@
 
 @section('home')
 
-{{-- @foreach ($postCat as $item)
-<img src="{{asset($item->post_image)}}" alt="" width="300px" height="250px">
-@endforeach --}}
-
-
-
 <style>
     .my-img-what {
         width: 360px !important;
@@ -15,7 +9,15 @@
         object-fit: cover;
         transition: transform 0.3s ease;
     }
+
+    .my-img-post {
+        width: 85px !important;
+        height: 79px !important;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
 </style>
+
 
 <main>
     <!-- About US Start -->
@@ -28,7 +30,7 @@
                             <div class="row justify-content-between align-items-end mb-15">
                                 <div class="col-xl-4">
                                     <div class="section-tittle mb-30">
-                                        <h3>Whats New</h3>
+                                        <h3>Latest News</h3>
                                     </div>
                                 </div>
                                 <div class="col-xl-8 col-md-9">
@@ -55,19 +57,16 @@
                                         <!-- card one -->
                                         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                                             <div class="row">
-                                                @foreach ($videos as $item)
+                                                @foreach ($latestNews as $item)
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <a href="{{ url('video/details/'.$item->post_slug) }}">
-                                                                <img src="{{asset($item->post_image)}}" alt="" class="my-img-what">
-                                                            </a>
-
+                                                            <img src="{{asset($item->post_image)}}" alt="" class="my-img-what">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
-                                                            <h4><a href="{{ url('video/details/'.$item->post_slug) }}">{{$item->post_title}} &nbsp; - <span style="color: red">(Video)</span> </a></h4>
-                                                            <span>Admin | {{ $item->created_at->diffForHumans() }}</span>
-                                                            {{-- <p>{!! substr($item->long_descp, 0, 80) !!}</p> --}}
+                                                            <h4><a href="#">{{$item->post_title}}</a></h4>
+                                                            <span>by Alice cloe   -   Jun 19, 2020</span>
+                                                            <p>{!! substr($item->long_descp, 0, 80) !!}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -541,12 +540,39 @@
                                 </a>
                             </div>
                         </div>
+                        <div>
+                            <aside class="single_sidebar_widget popular_post_widget">
+                                <h5 class="widget_title">Recent Post</h5>
+                                @foreach ($post as $item)
+                                    <div class="media post_item p-2">
+                                        <a href="{{ url('post/details/' . $item->post_slug) }}">
+                                            <img src="{{ asset($item->post_image) }}" alt="post" class="my-img-post">
+                                        </a>
+                                        <div class="media-body">
+                                            <a href="{{ url('post/details/' . $item->post_slug) }}">
+                                                <h6 class="pl-3">{{ substr($item->post_title, 0, 40) }}...</h6>
+                                            </a>
+                                            <p class="pl-3">{{ $item->created_at->format('M d Y') }}</p>
+                                        </div>
+                                    </div>
+                                @endforeach
+
+                            </aside>
+                        </div>
                         <!-- New Poster -->
                         <div class="news-poster d-none d-lg-block">
                             <img src="{{asset('frontend/assets/img/news/news_card.jpg')}}" alt="">
                         </div>
                     </div>
                 </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-start">
+                    <li class="page-item">
+                        {!!$latestNews->links('pagination::bootstrap-5')!!}
+                    </li>
+
+                    </ul>
+                </nav>
         </div>
     </div>
     <!-- About US End -->
@@ -556,25 +582,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="single-wrap">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-start">
-                            <li class="page-item"><a class="page-link" href="#">
-                                <!-- SVG icon -->
-                                <svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="15px">
-                                    <path fill-rule="evenodd"  fill="rgb(221, 221, 221)" d="M8.142,13.118 L6.973,14.135 L0.127,7.646 L0.127,6.623 L6.973,0.132 L8.087,1.153 L2.683,6.413 L23.309,6.413 L23.309,7.856 L2.683,7.856 L8.142,13.118 Z"/>
-                                    </svg>
-                            </span></a></li>
-                                <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                                <li class="page-item"><a class="page-link" href="#">02</a></li>
-                                <li class="page-item"><a class="page-link" href="#">03</a></li>
-                            <li class="page-item"><a class="page-link" href="#">
-                                <!-- SVG iocn -->
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40px" height="15px">
-                                <path fill-rule="evenodd"  fill="rgb(255, 11, 11)" d="M31.112,13.118 L32.281,14.136 L39.127,7.646 L39.127,6.624 L32.281,0.132 L31.167,1.154 L36.571,6.413 L0.491,6.413 L0.491,7.857 L36.571,7.857 L31.112,13.118 Z"/>
-                                </svg>
-                            </span></a></li>
-                            </ul>
-                        </nav>
+
                     </div>
                 </div>
             </div>

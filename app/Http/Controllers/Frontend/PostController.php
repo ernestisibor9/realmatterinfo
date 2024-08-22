@@ -57,4 +57,23 @@ public function SearchPost(Request $request){
     $videoOne = Video::latest()->limit(1)->get();
     return view('frontend.post.search_post', compact('postSearch','post', 'bcategory', 'videoOne'));
 }
+//
+public function VideoDetails($slug){
+    // $pSlug = Post::findOrFail($slug);
+    $videoDetails = Video::where('post_slug',$slug)->first();
+    $bcategory = Category::latest()->get();
+    $post = Post::latest()->limit(4)->get();
+    $videoOne = Video::latest()->limit(1)->get();
+
+    // $post = Post::latest()->limit(3)->get();
+    return view('frontend.video.video_details',compact('bcategory', 'videoDetails', 'post', 'videoOne'));
+}
+    // LatestNews
+    public function LatestNews(){
+        $bcategory = Category::latest()->get();
+        $post = Post::latest()->limit(4)->get();
+        $videoOne = Video::latest()->limit(1)->get();
+        $latestNews = Post::latest()->limit(6)->paginate(6);
+        return view('frontend.news.latest_news',compact('bcategory', 'post', 'videoOne', 'latestNews'));
+    }
 }

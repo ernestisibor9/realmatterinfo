@@ -90,6 +90,13 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     // Video Route
     Route::get('/video', [FrontendPostController::class, 'VideoList'])->name('video.list');
 
+    // Latest News Route
+    Route::get('/latest/news', [FrontendPostController::class, 'LatestNews'])->name('latest.news');
+
+
+    // Video Details Route
+    Route::get('/video/details/{slug}', [FrontendPostController::class, 'VideoDetails']);
+
 
     // Post Comment Route
     Route::post('/store/comment', [CommentController::class, 'StoreComment'])->name('store.comment');
