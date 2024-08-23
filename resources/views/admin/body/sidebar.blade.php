@@ -71,19 +71,19 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{route('admin.profile')}}">
-          <i class="typcn typcn-device-desktop menu-icon"></i>
+          <i class="typcn typcn-user menu-icon"></i>
           <span class="menu-title">Profile</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{route('admin.change.password')}}">
-          <i class="typcn typcn-device-desktop menu-icon"></i>
+          <i class="typcn typcn-lock-closed menu-icon"></i>
           <span class="menu-title">Change Password</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{route('admin.blog.comment')}}">
-          <i class="typcn typcn-device-desktop menu-icon"></i>
+          <i class="typcn typcn-messages menu-icon"></i>
           <span class="menu-title">Comment<span class="badge badge-primary ml-3">{{count($reply)}}</span></span>
         </a>
       </li>
@@ -102,7 +102,7 @@
 
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
-          <i class="typcn typcn-film menu-icon"></i>
+          <i class="typcn typcn-message menu-icon"></i>
           <span class="menu-title">Manage Post</span>
           <i class="menu-arrow"></i>
         </a>
@@ -115,7 +115,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-          <i class="typcn typcn-chart-pie-outline menu-icon"></i>
+          <i class="typcn typcn-video menu-icon"></i>
           <span class="menu-title">Manage Video</span>
           <i class="menu-arrow"></i>
         </a>
@@ -184,11 +184,11 @@
       </li> --}}
     </ul>
     <ul class="sidebar-legend">
-      <li>
+      {{-- <li>
         <p class="sidebar-menu-title">Category</p>
       </li>
       <li class="nav-item"><a href="#" class="nav-link">#Sales</a></li>
       <li class="nav-item"><a href="#" class="nav-link">#Marketing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">#Growth</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">#Growth</a></li> --}}
     </ul>
   </nav>
