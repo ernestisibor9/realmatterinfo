@@ -2,6 +2,10 @@
 
 @section('admin')
 
+@section('title')
+	RealMatterInfo - Admin Dashboard
+@endsection
+
 <div class="content-wrapper">
     <div class="row">
             <div class="col-md-4">

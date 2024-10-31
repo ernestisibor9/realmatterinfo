@@ -2,6 +2,10 @@
 
 @section('home')
 
+@section('title')
+	RealMatterInfo - Post List
+@endsection
+
 <style>
     .my-img-recent {
         width: 80px !important;

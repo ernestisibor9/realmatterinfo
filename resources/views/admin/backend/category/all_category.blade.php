@@ -2,6 +2,12 @@
 
 @section('admin')
 
+
+@section('title')
+	RealMatterInfo - All Category
+@endsection
+
+
 <div class="content-wrapper">
     <div class="row">
         <div class="col-lg-12 grid-margin stretch-card">

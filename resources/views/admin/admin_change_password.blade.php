@@ -1,6 +1,10 @@
 @extends('admin.admin_dashboard')
 
 @section('admin')
+
+@section('title')
+	RealMatterInfo - Change Password
+@endsection
     <div class="content-wrapper">
         <div class="row">
             <div class="col-md-4">

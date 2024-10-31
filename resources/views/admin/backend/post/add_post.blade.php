@@ -2,6 +2,12 @@
 
 @section('admin')
 
+
+@section('title')
+	RealMatterInfo - Add Post
+@endsection
+
+
 <div class="content-wrapper">
     <div class="row justify-content-center">
         <div class="col-lg-10 grid-margin stretch-card">

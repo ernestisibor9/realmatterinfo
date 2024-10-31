@@ -2,6 +2,10 @@
 
 @section('home')
 
+@section('title')
+	RealMatterInfo - Contact Us
+@endsection
+
 <main>
     <!-- ================ contact section start ================= -->
     <section class="contact-section">
@@ -99,7 +103,7 @@
                 <div class="media contact-info">
                     <span class="contact-info__icon"><i class="ti-email"></i></span>
                     <div class="media-body">
-                        <h3> crusadewisdom1@yahoo.com</h3>
+                        <h3>michaelthamas706@gmail.com, crusadewisdom1@yahoo.com</h3>
                         <p>Send us your query anytime!</p>
                     </div>
                 </div>

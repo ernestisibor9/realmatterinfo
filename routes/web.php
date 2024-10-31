@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\AdsController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CommentController;
 use App\Http\Controllers\Backend\PostController;
@@ -75,6 +76,17 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('/admin/comment/reply/{id}', 'AdminCommentReply')->name('admin.comment.reply');
         Route::post('/reply/message', 'ReplyMessage')->name('reply.message');
         Route::get('/change/status/{id}', 'ChangeStatus')->name('change.status');
+    });
+
+
+    // Advertisement All Routes
+    Route::controller(AdsController::class)->group(function () {
+        Route::get('/admin/all/advert', 'AllAds')->name('all.ads');
+        Route::get('/admin/add/advert', 'AddAds')->name('add.ads');
+        Route::post('/admin/store/ads', 'StoreAds')->name('store.ads');
+        Route::get('/admin/edit/ads/{id}', 'EditAds')->name('edit.ads');
+        Route::post('/admin/update/ads', 'UpdateAds')->name('update.ads');
+        Route::get('/admin/delete/ads/{id}', 'DeleteAds')->name('delete.ads');
     });
 });
 

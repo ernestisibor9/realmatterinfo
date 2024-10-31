@@ -1,6 +1,11 @@
 @extends('admin.admin_dashboard')
 
 @section('admin')
+
+@section('title')
+	RealMatterInfo - Admin Dashboard
+@endsection
+
     @php
         $id = Auth::user()->id;
         $profileData = App\Models\User::find($id);

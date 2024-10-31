@@ -1,6 +1,11 @@
 @extends('frontend.master')
 
 @section('home')
+
+@section('title')
+	RealMatterInfo - Home Page
+@endsection
+
     <!--================================
              START HERO AREA
     =================================-->

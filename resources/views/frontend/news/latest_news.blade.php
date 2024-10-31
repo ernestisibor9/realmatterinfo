@@ -2,6 +2,10 @@
 
 @section('home')
 
+@section('title')
+	RealMatterInfo - Latest News
+@endsection
+
 <style>
     .my-img-what {
         width: 360px !important;

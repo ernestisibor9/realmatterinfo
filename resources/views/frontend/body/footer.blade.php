@@ -28,7 +28,7 @@
                                     <p class="info1">By virtue of the above exposure, Bhumbah is a philosopher,
                                         musician,web developer, real estate consultant, entrepreneur, and a blogger.</p>
                                     <p class="info2">34, Allen Avenue, Ikeja, Lagos</p>
-                                    <p class="info2">Email: crusadewisdom1@yahoo.com</p>
+                                    <p class="info2">Email: michaelthamas706@gmail.com</p>
                                     <p class="info2">Phone: +2348167145276
                                     </p>
                                 </div>

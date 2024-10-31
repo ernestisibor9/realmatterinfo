@@ -1,6 +1,12 @@
 @extends('admin.admin_dashboard')
 
 @section('admin')
+
+
+@section('title')
+	RealMatterInfo - All Comment
+@endsection
+
     <div class="content-wrapper">
         <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">

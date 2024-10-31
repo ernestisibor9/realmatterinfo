@@ -1,6 +1,11 @@
 @extends('frontend.master')
 
 @section('home')
+
+@section('title')
+	RealMatterInfo - Post Details
+@endsection
+
     <style>
         .my-img-recent {
             width: 80px !important;
